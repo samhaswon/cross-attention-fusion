@@ -14,6 +14,6 @@ if __name__ == '__main__':
         attention_dropout=0
     )
 
-    x = torch.rand((1, 3, 512, 512))
+    x = torch.rand((2, 3, 512, 512))
     result = net(x)
     print(result.data)
