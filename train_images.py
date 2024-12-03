@@ -18,6 +18,7 @@ from torch.utils.tensorboard import SummaryWriter
 # pylint: disable=import-error
 from get_device import get_device
 from models.mhsa_2 import MHSAViT
+from models.early_concat import EarlyConcat
 
 
 ROOT_DIRECTORY = "features/train"
@@ -151,7 +152,7 @@ if __name__ == '__main__':
         print("Using TF32 for some calculations")
     # Model instantiation
     print("Instantiating model")
-    model = MHSAViT(
+    model = EarlyConcat(
         image_size=512,
         patch_size=32,
         num_layers=6,
