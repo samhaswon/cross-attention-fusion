@@ -15,5 +15,5 @@ class Decoder(nn.Module):
         x = self.decode_0(x)
         x = self.decode_1(x)
         x = self.decode_2(x)
-        x = self.sigmoid(x)
-        return x
+        # x = self.sigmoid(x)
+        return torch.squeeze(x).unsqueeze(-1)
