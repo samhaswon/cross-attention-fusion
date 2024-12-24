@@ -69,7 +69,7 @@ class MHSAViT(nn.Module):
 
         # Combine the features
         # feature_tensor = torch.cat([text, image, graph], dim=1)
-        feature_tensor = torch.add(graph, torch.add(text, image, alpha=1), alpha=1)
+        feature_tensor = graph + text + image  # torch.add(graph, torch.add(text, image, alpha=1), alpha=1)
 
         # Rearrange the dimensions for self-attention
         feature_tensor = feature_tensor.permute(1, 0, 2)

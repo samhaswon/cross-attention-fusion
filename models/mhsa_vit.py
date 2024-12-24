@@ -59,7 +59,7 @@ class MHSAViT(nn.Module):
             num_heads=num_heads                 # Attention heads
         )
 
-        self.__decoder = Decoder(768, 771, 1)
+        self.__decoder = Decoder(768, 3075, 1)
 
     def forward(self, x: torch.Tensor):
         # Modality inferencing

@@ -1,9 +1,9 @@
-from models.mhsa_vit import MHSAViT
+from models.full_vit import FullViT
 import torch
 
 if __name__ == '__main__':
     # 855MB of memory
-    net = MHSAViT(
+    net = FullViT(
         image_size=1024,
         patch_size=32,
         num_layers=6,

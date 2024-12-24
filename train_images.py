@@ -17,16 +17,17 @@ import torchvision.transforms.v2.functional as tf
 from torch.utils.tensorboard import SummaryWriter
 # pylint: disable=import-error
 from get_device import get_device
-from models.mhsa_2 import MHSAViT
+from models.mhsa_vit import MHSAViT
 from models.early_concat import EarlyConcat
+from models.full_vit import FullViT
 
 
 ROOT_DIRECTORY = "features/train"
 EVAL_DIRECTORY = "features/eval"
 NUM_EPOCHS = 100
-TENSOR_SIZE = 512
-BATCH_SIZE = 32
-EVAL_BATCH_SIZE = 100
+TENSOR_SIZE = 1024
+BATCH_SIZE = 52
+EVAL_BATCH_SIZE = 64
 USE_AMP = True
 
 
@@ -152,8 +153,8 @@ if __name__ == '__main__':
         print("Using TF32 for some calculations")
     # Model instantiation
     print("Instantiating model")
-    model = EarlyConcat(
-        image_size=512,
+    model = FullViT(
+        image_size=1024,
         patch_size=32,
         num_layers=6,
         num_heads=6,
